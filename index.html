@@ -43,7 +43,14 @@
             margin-bottom: 10px;
         }
         .phone-number {
-            color: yellow; 
+            color: #FFA500; 
+            font-weight: bold;
+        }
+        .offer {
+            font-size: 18px;
+            margin-top: 20px;
+            color: white;
+            font-style: italic;
         }
         .address {
             font-size: 18px;
@@ -55,10 +62,10 @@
             background-size: cover;
             background-position: center;
             min-height: 200px; 
-            transition: background-image 1s ease-in-out; 
+            transition: background-image 1s ease-in-out;
         }
 
-      
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -84,12 +91,15 @@
                 font-size: 16px;
                 margin-top: 15px;
             }
+            .offer {
+                font-size: 16px;
+            }
             .image-section {
                 min-height: 250px; 
             }
         }
 
-        
+
         @media (max-width: 480px) {
             h1 {
                 font-size: 20px;
@@ -103,6 +113,9 @@
                 font-size: 14px;
                 margin-top: 10px;
             }
+            .offer {
+                font-size: 14px;
+            }
             .image-section {
                 min-height: 200px; 
             }
@@ -114,7 +127,8 @@
         <div class="text-section">
             <h1>Parkovací místa na parkovišti Albert k pronájmu</h1>
             <p class="phone-number">Telefonní číslo: +420 606 739 080</p>
-            <p class="address">Adresa parkoviště: Praha 5, Štěpařská 1098/22</p>
+            <p class="offer">21 parkovacích míst k pronájmu. Cena: 2500 Kč za měsíc.</p>
+            <p class="address">Sídlo parkoviště: Praha 5, Štěpařská 1098/22</p>
         </div>
         <div class="image-section" id="imageSection" style="background-image: url('parking1.jpg');">
         </div>
@@ -129,7 +143,7 @@
             document.getElementById('imageSection').style.backgroundImage = `url(${images[currentIndex]})`;
         }
 
-        setInterval(changeImage, 4000); 
+        setInterval(changeImage, 4000);
     </script>
 </body>
 </html>
