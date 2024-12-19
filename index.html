@@ -66,10 +66,22 @@
         }
         .image-section {
             width: 100%;
-            background-size: cover;
-            background-position: center;
             height: 250px; 
-            transition: background-image 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .image-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .image-section img.active {
+            opacity: 1;
         }
         .map {
             width: 90%;
@@ -148,7 +160,11 @@
             </p>
             <p class="address">Umístění parkoviště: Praha 5, Štěpařská 1098/22</p>
         </div>
-        <div class="image-section" id="imageSection" style="background-image: url('parking1.jpg');"></div>
+        <div class="image-section" id="imageSection">
+            <img src="parking1.jpg" class="active">
+            <img src="parking2.jpg">
+            <img src="parking5.jpg">
+        </div>
     </div>
 
     <div class="map">
@@ -159,15 +175,16 @@
     </div>
 
     <script>
-        const images = ['parking1.jpg', 'parking2.jpg', 'parking5.jpg'];
+        const images = document.querySelectorAll('.image-section img');
         let currentIndex = 0;
 
         function changeImage() {
+            images[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById('imageSection').style.backgroundImage = `url(${images[currentIndex]})`;
+            images[currentIndex].classList.add('active');
         }
 
-        setInterval(changeImage, 4000);
+        setInterval(changeImage, 3000);
     </script>
 </body>
 </html>
